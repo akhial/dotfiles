@@ -1,3 +1,5 @@
+set nocompatible " use vim settings
+
 " install vim-plug if not installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -16,14 +18,25 @@ Plug 'terryma/vim-multiple-cursors' " multi-cursor support
 Plug 'tpope/vim-surround' " surround with parentheses, brackets, etc.
 Plug 'tpope/vim-fugitive' " git plugin
 Plug 'scrooloose/nerdtree' " view file directory
+Plug 'tpope/vim-repeat' " support '.' repeat for complex commands
 
 call plug#end()
 
+" syntax highlighting
+syntax on
+
 " tab behavior
+set autoindent
+set smartindent
+set smarttab
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+" line wrapping
+set nowrap
+set linebreak
 
 " general
 set nu
@@ -32,8 +45,11 @@ set laststatus=2
 set splitbelow
 set splitright
 set noshowmode
+set showcmd
 set backspace=indent,eol,start
 set encoding=utf-8
+set visualbell
+set hidden
 
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif   " close vim if the only window left open is a NERDTree
@@ -52,7 +68,4 @@ let g:airline_theme = "palenight"
 if (has("termguicolors"))
   set termguicolors
 endif
-
-" italics for palenight
-let g:palenight_terminal_italics=1
 
