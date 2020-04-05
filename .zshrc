@@ -76,16 +76,29 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	archlinux
-	git
-	colored-man-pages
-	zsh-autosuggestions
-	zsh-syntax-highlighting
+    archlinux
+    git
+    colored-man-pages
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Android SDK
+export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+
+# Update PATH
+path+='/home/adel/src/flutter/bin'
+path+='/home/adel/bin/android-sdk/tools/bin'
+path+='/home/adel/bin/android-sdk/platform-tools'
+export PATH
+
+# Firefox pixel-perfect scrolling
+export MOZ_USE_XINPUT2=1
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -115,3 +128,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
