@@ -97,9 +97,6 @@ path+='/home/adel/bin/android-sdk/tools/bin'
 path+='/home/adel/bin/android-sdk/platform-tools'
 export PATH
 
-# Firefox pixel-perfect scrolling
-export MOZ_USE_XINPUT2=1
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -123,8 +120,9 @@ export MOZ_USE_XINPUT2=1
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias nh="sudo nethogs"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias nh='sudo nethogs'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias vmdstart='sudo systemctl restart libvirtd.service'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
