@@ -125,7 +125,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vdstart='sudo systemctl restart libvirtd.service'
 
 # Timewarrior completions
-source ~/.config/zsh/timew
+[[ ! -f ~/.config/zsh/timew ]] || source ~/.config/zsh/timew
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
