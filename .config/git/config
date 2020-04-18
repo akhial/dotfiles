@@ -1,0 +1,5 @@
+[user]
+	email = adel.khial@gmail.com
+	name = Adel Khial
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
