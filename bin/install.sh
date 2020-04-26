@@ -12,4 +12,8 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+config update-index --skip-worktree LICENSE
+config update-index --skip-worktree README.md
+rm LICENSE
+rm README.md
 
