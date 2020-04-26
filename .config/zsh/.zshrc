@@ -87,6 +87,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Update PATH
+path+='/home/adel/.bin'
+path+='/home/adel/src/flutter/bin'
+path+='/home/adel/.bin/android-sdk/tools/bin'
+path+='/home/adel/.bin/android-sdk/platform-tools'
+export PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
