@@ -87,11 +87,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Android SDK
+export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+
 # Update PATH
-path+='/home/adel/.bin'
+path+='/home/adel/bin'
 path+='/home/adel/src/flutter/bin'
-path+='/home/adel/.bin/android-sdk/tools/bin'
-path+='/home/adel/.bin/android-sdk/platform-tools'
+path+='/home/adel/bin/android-sdk/tools/bin'
+path+='/home/adel/bin/android-sdk/platform-tools'
 export PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
