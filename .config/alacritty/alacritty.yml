@@ -527,7 +527,7 @@ key_bindings:
   #- { key: M,      mods: Command,         action: Minimize         }
   #- { key: Q,      mods: Command,         action: Quit             }
   #- { key: W,      mods: Command,         action: Quit             }
-  - { key: F, mods: Control, action: ToggleFullscreen }
+  - { key: Z, mods: Control|Shift, action: ToggleFullscreen }
 
   #- { key: Paste,                    action: Paste                            }
   #- { key: Copy,                     action: Copy                             }

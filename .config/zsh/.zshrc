@@ -87,16 +87,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Android SDK
-export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
-export ANDROID_HOME=$ANDROID_SDK_ROOT
-
-# Update PATH
-path+='/home/adel/src/flutter/bin'
-path+='/home/adel/bin/android-sdk/tools/bin'
-path+='/home/adel/bin/android-sdk/platform-tools'
-export PATH
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -125,7 +115,11 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vdstart='sudo systemctl restart libvirtd.service'
 
 # Timewarrior completions
-[[ ! -f ~/.config/zsh/timew ]] || source ~/.config/zsh/timew
+if [[ ! -f ~/.config/zsh/timew ]]; then
+    silent !curl -fLo ~/.config/zsh/timew https://raw.githubusercontent.com/lauft/timew-bashcompletion/master/timew
+fi
+
+source ~/.config/zsh/timew
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
