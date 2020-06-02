@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # Android SDK
 export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
 export ANDROID_HOME=$ANDROID_SDK_ROOT
+export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
 # Update PATH
 path+='/home/adel/bin'
