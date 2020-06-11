@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+while getopts ":f:" opt; do
+    case $opt in
+        f)
+            shift 2
+            NAME=`echo $OPTARG | sed 's/.svg//g'`
+            for x in $@ ; do inkscape --export-filename=$NAME@${x}.png -d ${x} $OPTARG ; done
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            exit 1
+            ;;
+    esac
+done
+
