@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 142
-    lines: 40
+    columns: 120
+    lines: 32
 
   # Window position (changes require restart)
   #
@@ -174,7 +174,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#23252f' #'#232730'
+    background: '#2f343f'
+#'#292d3e' #'#23252f' #'#232730'
     foreground: '#d5d8ee'
 
     # Bright and dim foreground colors
