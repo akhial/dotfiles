@@ -5,7 +5,7 @@ while getopts ":f:" opt; do
         f)
             shift 2
             NAME=`echo $OPTARG | sed 's/.svg//g'`
-            for x in $@ ; do inkscape --export-filename=$NAME@${x}.png -d ${x} $OPTARG ; done
+            for x in $@ ; do inkscape --export-filename=exports/$NAME@${x}.png -d ${x} $OPTARG ; done
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
