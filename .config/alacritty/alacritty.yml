@@ -103,15 +103,15 @@ font:
     style: Medium
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: cozette
+    family: cozette
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Medium
 
   # Italic font face
   #italic:
@@ -174,7 +174,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#2f343f'
+    background: '#2d2d2d'
 #'#292d3e' #'#23252f' #'#232730'
     foreground: '#d5d8ee'
 
