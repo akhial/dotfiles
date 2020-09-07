@@ -13,7 +13,8 @@ call plug#begin('~/.vim/plugins')
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
 Plug 'udalov/kotlin-vim' " kotlin syntax highlighting support
 Plug 'vim-airline/vim-airline' " polybar for vim
-Plug 'drewtempelmeyer/palenight.vim' " dark theme
+" Plug 'drewtempelmeyer/palenight.vim' " dark theme
+Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors' " multi-cursor support
 Plug 'tpope/vim-surround' " surround with parentheses, brackets, etc.
 Plug 'tpope/vim-fugitive' " git plugin
@@ -39,7 +40,7 @@ set nowrap
 set linebreak
 
 " general
-set nu
+set nu rnu
 set shortmess+=I
 set laststatus=2
 set splitbelow
@@ -68,8 +69,8 @@ au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " set theme
 set background=dark
-colorscheme palenight
-let g:airline_theme = "palenight"
+colorscheme gruvbox
+let g:airline_theme = "gruvbox"
 
 " true color support
 if exists('+termguicolors')
