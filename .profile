@@ -11,6 +11,9 @@ export EDITOR=/usr/bin/vim
 # Firefox smooth scroll
 export MOZ_USE_XINPUT2=1
 
+# Calibre dark mode
+export CALIBRE_USE_DARK_PALETTE=1
+
 # Tidy ~
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_DATA_HOME="$HOME"/.local/share
