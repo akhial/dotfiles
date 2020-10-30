@@ -98,6 +98,7 @@ path+='/home/adel/src/flutter/bin'
 path+='/home/adel/bin/android-sdk/tools/bin'
 path+='/home/adel/bin/android-sdk/platform-tools'
 path+='/home/adel/bin/robo3t/bin'
+path+='/home/adel/bin/intellij-idea/bin'
 export PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
