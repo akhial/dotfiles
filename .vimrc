@@ -10,15 +10,12 @@ endif
 call plug#begin('~/.vim/plugins')
 
 " plugins
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder
-Plug 'udalov/kotlin-vim' " kotlin syntax highlighting support
+" Plug 'udalov/kotlin-vim' " kotlin syntax highlighting support
 Plug 'vim-airline/vim-airline' " polybar for vim
-" Plug 'drewtempelmeyer/palenight.vim' " dark theme
 Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors' " multi-cursor support
 Plug 'tpope/vim-surround' " surround with parentheses, brackets, etc.
 Plug 'tpope/vim-fugitive' " git plugin
-Plug 'scrooloose/nerdtree' " view file directory
 Plug 'tpope/vim-repeat' " support '.' repeat for complex commands
 
 call plug#end()
@@ -52,20 +49,12 @@ set encoding=utf-8
 set visualbell
 set hidden
 
-" NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif   " close vim if the only window left open is a NERDTree
-map <F2> :NERDTreeToggle<CR>
-
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
     echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
-" remap capslock to esc when vim starts
-au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " set theme
 set background=dark

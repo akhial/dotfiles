@@ -124,9 +124,11 @@ export PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias nh='sudo nethogs'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias vdstart='sudo systemctl restart libvirtd.service'
+alias vs='sudo systemctl restart libvirtd.service'
+alias f='free -hw'
+
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 # Timewarrior completions
 if [[ ! -f ~/.config/zsh/timew ]]; then
@@ -135,6 +137,8 @@ fi
 
 source ~/.config/zsh/timew
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Vi-mode
+bindkey -v
 
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
