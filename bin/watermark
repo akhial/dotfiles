@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wm=~/Pictures/wm.png
+
+for i in *.jpg; do
+    echo "Processing $i"
+    composite -dissolve 35% -gravity center -quality 75 $wm "$i" "$i"
+done

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sleep 10s
+xrandr --output DP-1-1 --set "Broadcast RGB" "Full"
+xrandr --output DP-1-1 --gamma 1.05
+xrandr --output HDMI-2 --set "Broadcast RGB" "Full"
+xrandr --output HDMI-2 --gamma 1
+

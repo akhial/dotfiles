@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+echo "Clicking once every 250 seconds..."
+while :
+do
+    echo "Click!"
+    xdotool click 1
+    sleep $(bc -l <<< "scale=1; 250+$(shuf -i 1-100 -n 1)/10")
+done
+
