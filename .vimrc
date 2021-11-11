@@ -13,10 +13,10 @@ call plug#begin('~/.vim/plugins')
 " Plug 'udalov/kotlin-vim' " kotlin syntax highlighting support
 Plug 'vim-airline/vim-airline' " polybar for vim
 Plug 'morhetz/gruvbox'
-Plug 'terryma/vim-multiple-cursors' " multi-cursor support
-Plug 'tpope/vim-surround' " surround with parentheses, brackets, etc.
-Plug 'tpope/vim-fugitive' " git plugin
-Plug 'tpope/vim-repeat' " support '.' repeat for complex commands
+" Plug 'terryma/vim-multiple-cursors' " multi-cursor support
+" Plug 'tpope/vim-surround' " surround with parentheses, brackets, etc.
+" Plug 'tpope/vim-fugitive' " git plugin
+" Plug 'tpope/vim-repeat' " support '.' repeat for complex commands
 
 call plug#end()
 
