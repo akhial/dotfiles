@@ -4,11 +4,13 @@ scrolling:
 font:
   normal:
     family: Jetbrains Mono Nerd Font
-    style: Medium
+    style: Regular
 
   bold:
     family: Jetbrains Mono Nerd Font
     style: Bold
+
+  size: 13
 
 colors:
   primary:
