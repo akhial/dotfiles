@@ -60,6 +60,7 @@ endfunction
 set background=dark
 colorscheme gruvbox
 let g:airline_theme = "gruvbox"
+let g:airline_powerline_fonts = 1
 
 " true color support
 if exists('+termguicolors')
