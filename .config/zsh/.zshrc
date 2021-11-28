@@ -1,20 +1,18 @@
+# Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# OMZ config
-export ZSH="/home/adel/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+autoload -Uz compinit promptinit
+compinit
+promptinit
 
-plugins=(
-    archlinux
-    git
-    colored-man-pages
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
+source ~/src/powerlevel10k/powerlevel10k.zsh-theme
 
-source $ZSH/oh-my-zsh.sh
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY_TIME
 
 # Android SDK
 export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
@@ -23,28 +21,25 @@ export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
 # Update PATH
 path+='/home/adel/bin'
-path+='/home/adel/src/flutter/bin'
-path+='/home/adel/bin/android-sdk/tools/bin'
-path+='/home/adel/bin/android-sdk/platform-tools'
-path+='/home/adel/bin/robo3t/bin'
-path+='/home/adel/bin/intellij-idea/bin'
 export PATH
 
+# Alias definitions
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias vs='sudo systemctl restart libvirtd.service'
 alias f='free -hw'
-
-# Map CapsLock to Escape for Vim
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-
-# Timewarrior completions
-if [[ ! -f ~/.config/zsh/timew ]]; then
-    silent !curl -fLo ~/.config/zsh/timew https://raw.githubusercontent.com/lauft/timew-bashcompletion/master/timew
-fi
-
-source ~/.config/zsh/timew
+alias gdl='git clone --depth=1'
+alias l='ls -lah --color'
+alias ls='ls --color'
+alias vimzsh='vim ~/.config/zsh/.zshrc'
+alias vs='sudo systemctl restart libvirtd.service'
+alias zshsrc='source ~/.config/zsh/.zshrc'
 
 # Vi-mode
 bindkey -v
 
+# Install community/zsh-syntax-highlighting
+# Install community/zsh-autosuggestions
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+

@@ -1,18 +1,13 @@
-window:
-  dimensions:
-    columns: 120
-    lines: 64
-
 scrolling:
   history: 10000
 
 font:
   normal:
-    family: Cozette
+    family: Jetbrains Mono Nerd Font
     style: Medium
 
   bold:
-    family: Cozette
+    family: Jetbrains Mono Nerd Font
     style: Bold
 
 colors:
@@ -46,9 +41,4 @@ colors:
     magenta: '#8f3f71'
     cyan:    '#427b58'
     white:   '#928374'
-
-dynamic_title: true
-
-key_bindings:
-  - { key: G, mods: Control|Shift, action: ToggleFullscreen }
 
