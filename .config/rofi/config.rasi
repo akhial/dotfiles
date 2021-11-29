@@ -1,0 +1,8 @@
+configuration {
+    modi: "window,drun,ssh";
+    font: "Jetbrains Mono 13";
+    show-icons: true;
+    icon-theme: "Papirus-dark";
+}
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
