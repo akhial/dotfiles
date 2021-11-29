@@ -17,6 +17,7 @@ myKeys :: [(String, X ())]
 myKeys =
     [ ("M-S-<Return>", spawn "rofi -show drun")
     , ("M-<Return>", spawn (myTerminal))
+    , ("M-S-z", spawn "xset dpms force off && slock")
     ]
 
 main = xmonad $ desktopConfig
