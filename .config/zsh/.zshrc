@@ -14,22 +14,19 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt INC_APPEND_HISTORY_TIME
 
-# Android SDK
-export ANDROID_SDK_ROOT='/home/adel/bin/android-sdk'
-export ANDROID_HOME=$ANDROID_SDK_ROOT
-export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
-
 # Update PATH
 path+='/home/adel/bin'
 export PATH
 
 # Alias definitions
+alias ..='cd ..'
+alias ...='cd ../..'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias f='free -hw'
 alias gdl='git clone --depth=1'
 alias l='ls -lah --color'
 alias ls='ls --color'
-alias vimzsh='vim ~/.config/zsh/.zshrc'
+alias zshconfig='vim ~/.config/zsh/.zshrc'
 alias vs='sudo systemctl restart libvirtd.service'
 alias zshsrc='source ~/.config/zsh/.zshrc'
 
