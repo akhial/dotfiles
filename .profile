@@ -1,12 +1,15 @@
 #!/bin/sh
 
-# QT stuff
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_QPA_PLATFORMTHEME=gnome
-export QT_STYLE_OVERRIDE=kvantum
-
 # Editor
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
+
+# Chrome
+export CHROME_EXECUTABLE=chromium
+
+# Android SDK
+export ANDROID_SDK_ROOT="$HOME"/bin/android
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
 # Firefox smooth scroll
 export MOZ_USE_XINPUT2=1
@@ -21,9 +24,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export TIMEWARRIORDB="$XDG_CONFIG_HOME"/timewarrior
 export HISTFILE="$XDG_DATA_HOME"/zsh/.histfile
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-
-# fcitx
-#export XMODIFIERS=@im=fcitx
-#export GTK_IM_MODULE=fcitx
-#export QT_IM_MODULE=fcitx
 
