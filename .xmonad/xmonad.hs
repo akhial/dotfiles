@@ -24,6 +24,7 @@ myFocusedBorderColor = "#458588" -- Blue
 -- Spawn processes
 myStartupHook = do
     spawnOnce "~/.fehbg &"
+    spawnOnce "dunst &"
 
 -- Layouts
 myLayoutHook = full ||| tall ||| column
@@ -37,16 +38,14 @@ myLayoutHook = full ||| tall ||| column
       delta = 3/100
       ratio = 1/2
 
-myWorkspaces = ["web","dev","msg","4","5","6","7","8","9"]
-
 -- Management
 myManageHook = composeAll
-    [ className =? "firefox" --> doShift "web"
-    , className =? "Code" --> doShift "dev"
-    , className =? "jetbrains-studio" --> doShift "dev"
-    , className =? "TelegramDesktop" --> doShift "msg"
-    , className =? "Signal" --> doShift "msg"
-    , className =? "Slack" --> doShift "msg"
+    [ className =? "firefox" --> doShift "1"
+    , className =? "Code" --> doShift "2"
+    , className =? "jetbrains-studio" --> doShift "2"
+    , className =? "TelegramDesktop" --> doShift "3"
+    , className =? "Signal" --> doShift "3"
+    , className =? "Slack" --> doShift "3"
     , className =? "config" --> doFloat
     , className =? "dialog" --> doFloat
     , className =? "splash" --> doFloat
