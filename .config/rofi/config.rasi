@@ -1,5 +1,5 @@
 configuration {
-    modi: "window,drun,ssh";
+    modi: "window,run,drun";
     font: "Jetbrains Mono 13";
     show-icons: true;
     icon-theme: "Papirus-dark";
