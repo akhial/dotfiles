@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+file=$(date +"%s")
+sel=$(slop -f "-i %i -g %g")
+shotgun $sel $HOME/images/shots/$file
+dunstify -I $file "Shotgun" "Screenshot captured!"
+
