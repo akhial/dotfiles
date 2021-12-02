@@ -15,7 +15,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
 
 -- Basic configuration
-myTerminal           = "alacritty"
+myTerminal           = "kitty"
 myModMask            = mod4Mask -- Super key
 myBorderWidth        = 2
 myNormalBorderColor  = "#a89984" -- Gray
