@@ -25,7 +25,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export HISTFILE="$XDG_DATA_HOME"/zsh/.histfile
+export SSB_HOME="$XDG_DATA_HOME"/zoom
 export TIMEWARRIORDB="$XDG_CONFIG_HOME"/timewarrior
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-
