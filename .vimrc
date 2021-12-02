@@ -49,6 +49,10 @@ set encoding=utf-8
 set visualbell
 set hidden
 
+" Disable bell
+set vb
+set t_vb=
+
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
