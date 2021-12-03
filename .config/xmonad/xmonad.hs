@@ -15,7 +15,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
 
 -- Basic configuration
-myTerminal           = "kitty"
+myTerminal           = "alacritty"
 myModMask            = mod4Mask -- Super key
 myBorderWidth        = 2
 myNormalBorderColor  = "#a89984" -- Gray
@@ -42,8 +42,7 @@ myLayoutHook = full ||| tall ||| column
 
 -- Management
 myManageHook = composeAll
-    [ className =? "firefox"          --> doShift "1"
-    , className =? "Code"             --> doShift "2"
+    [ className =? "Code"             --> doShift "2"
     , className =? "jetbrains-studio" --> doShift "2"
     , className =? "TelegramDesktop"  --> doShift "3"
     , className =? "Signal"           --> doShift "3"
@@ -51,7 +50,6 @@ myManageHook = composeAll
     , className =? "config"           --> doFloat
     , className =? "dialog"           --> doFloat
     , className =? "splash"           --> doFloat
-    , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat
     ]
 
 -- Keybindings
@@ -59,13 +57,13 @@ myKeys =
     [ ("M-S-<Return>",            spawn "rofi -show drun")
     , ("M-<Return>",              spawn (myTerminal))
     , ("M-S-x",                   spawn "(slock &) && (sleep .5 && xset dpms force off)")
-    -- Audio buttons
+    -- Hardware buttons
     , ("<XF86AudioMute>",         spawn "amixer set Master toggle")
     , ("<XF86AudioLowerVolume>",  spawn "amixer set Master 5%- unmute")
     , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+ unmute")
-    -- Brightness buttons
     , ("<XF86MonBrightnessUp>",   spawn "xbacklight -inc 10")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+    , ("<Print>",                 spawn "~/bin/shot")
     ]
     ++
     -- Fix screen order.
@@ -86,4 +84,3 @@ main = xmonad $ azertyConfig
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     } `additionalKeysP` myKeys
-
