@@ -3,5 +3,5 @@
 file=$(date +"%s")
 sel=$(slop -f "-i %i -g %g")
 shotgun $sel $HOME/images/shots/$file
-dunstify -I $file "Shotgun" "Screenshot captured!"
+dunstify -I $HOME/images/shots/$file "Shotgun" "Screenshot captured!"
 
