@@ -1,8 +1,8 @@
 configuration {
-    modi: "window,run,drun";
+    modi: "drun,window";
     font: "Jetbrains Mono 13";
     show-icons: true;
     icon-theme: "Papirus-dark";
+    monitor: "-4";
 }
 @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
-
