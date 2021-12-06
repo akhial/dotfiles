@@ -15,6 +15,7 @@ Plug 'tpope/vim-commentary'         " Comment stuff out
 Plug 'tpope/vim-eunuch'             " *nix file operations
 Plug 'tpope/vim-fugitive'           " Should be illegal
 Plug 'tpope/vim-surround'           " Surround with parentheses, brackets, etc.
+Plug 'lambdalisue/suda.vim'         " Sudo write
 Plug 'udalov/kotlin-vim'            " Kotlin syntax highlighting
 
 call plug#end()
