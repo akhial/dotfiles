@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Locale
+export LANG=en_US.UTF-8
+
 # Editor
 export EDITOR=nvim
 
@@ -14,8 +17,8 @@ export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 # Firefox smooth scroll
 export MOZ_USE_XINPUT2=1
 
-# Calibre dark mode
-export CALIBRE_USE_DARK_PALETTE=1
+# QT theme
+export QT_QPA_PLATFORMTHEME=gtk2
 
 # Tidy ~
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
