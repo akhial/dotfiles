@@ -7,8 +7,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
 
-import XMonad.Hooks.SetWMName
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (manageDocks)
+import XMonad.Hooks.SetWMName
 
 import XMonad.Config.Azerty
 import XMonad.Util.EZConfig (additionalKeysP)
@@ -29,9 +30,9 @@ myStartupHook = do
     setWMName "LG3D"
 
 -- Layouts
-myLayoutHook = full ||| tall ||| column
+myLayoutHook = full ||| tall
     where
-      full    = smartBorders (Full)
+      full    = lessBorders EmptyScreen (Full)
       tall    = smartSpacingWithEdge gap $ Tall nmaster delta ratio
       column  = smartSpacingWithEdge gap $ ThreeCol nmaster delta (1/3)
       -- Column parameters
@@ -44,9 +45,9 @@ myLayoutHook = full ||| tall ||| column
 myManageHook = composeAll
     [ className =? "Code"             --> doShift "2"
     , className =? "jetbrains-studio" --> doShift "2"
-    , className =? "TelegramDesktop"  --> doShift "3"
-    , className =? "Signal"           --> doShift "3"
-    , className =? "Slack"            --> doShift "3"
+    , className =? "TelegramDesktop"  --> doShift "5"
+    , className =? "Signal"           --> doShift "5"
+    , className =? "Slack"            --> doShift "5"
     , className =? "config"           --> doFloat
     , className =? "dialog"           --> doFloat
     , className =? "splash"           --> doFloat
@@ -55,6 +56,7 @@ myManageHook = composeAll
 -- Keybindings
 myKeys =
     [ ("M-S-<Return>",            spawn "rofi -show drun")
+    , ("M-C-<Return>",            spawn "rofi -show window")
     , ("M-<Return>",              spawn (myTerminal))
     , ("M-S-x",                   spawn "(slock &) && (sleep .5 && xset dpms force off)")
     -- Hardware buttons
@@ -74,7 +76,7 @@ myKeys =
     ]
 
 -- Main
-main = xmonad $ azertyConfig
+main = xmonad $ ewmh azertyConfig
     { manageHook         = myManageHook <+> manageDocks
     , terminal           = myTerminal
     , modMask            = myModMask
