@@ -21,6 +21,12 @@ export MOZ_USE_XINPUT2=1
 export QT_QPA_PLATFORMTHEME=gtk2
 
 # Tidy ~
+export XDG_DESKTOP_DIR="$HOME/"
+export XDG_MUSIC_DIR="$HOME/"
+export XDG_VIDEOS_DIR="$HOME/"
+export XDG_DOCUMENTS_DIR="$HOME/documents"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_PICTURES_DIR="$HOME/images"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
