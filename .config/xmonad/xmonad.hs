@@ -8,19 +8,33 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
 
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks (manageDocks)
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 
 import XMonad.Config.Azerty
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
+
+-- Theme colors
+colorfg = "#ebdbb2"
+colorbg = "#282828"
+color01 = "#cc241d"
+color02 = "#98971a"
+color03 = "#d79921"
+color04 = "#458588"
+color05 = "#b16286"
+color06 = "#689d6a"
+color07 = "#a89984"
+color08 = "#928374"
 
 -- Basic configuration
 myTerminal           = "alacritty"
+myBrowser            = "qutebrowser"
 myModMask            = mod4Mask -- Super key
 myBorderWidth        = 2
-myNormalBorderColor  = "#a89984" -- Gray
-myFocusedBorderColor = "#458588" -- Blue
+myNormalBorderColor  = color07 -- Gray
+myFocusedBorderColor = color04 -- Blue
 
 -- Spawn processes
 myStartupHook = do
@@ -30,9 +44,10 @@ myStartupHook = do
     setWMName "LG3D"
 
 -- Layouts
-myLayoutHook = full ||| tall
+myLayoutHook = full ||| tall ||| nb
     where
       full    = lessBorders EmptyScreen (Full)
+      nb      = noBorders (Full)
       tall    = smartSpacingWithEdge gap $ Tall nmaster delta ratio
       column  = smartSpacingWithEdge gap $ ThreeCol nmaster delta (1/3)
       -- Column parameters
@@ -51,13 +66,15 @@ myManageHook = composeAll
     , className =? "config"           --> doFloat
     , className =? "dialog"           --> doFloat
     , className =? "splash"           --> doFloat
+    , className =? "Gcolor3"          --> doFloat
     ]
 
 -- Keybindings
 myKeys =
     [ ("M-S-<Return>",            spawn "rofi -show drun")
     , ("M-C-<Return>",            spawn "rofi -show window")
-    , ("M-<Return>",              spawn (myTerminal))
+    , ("M-<Return>",              spawn myTerminal)
+    , ("M-b",                     spawn myBrowser)
     , ("M-S-x",                   spawn "(slock &) && (sleep .5 && xset dpms force off)")
     -- Hardware buttons
     , ("<XF86AudioMute>",         spawn "amixer set Master toggle")
@@ -72,7 +89,7 @@ myKeys =
     -- See: Frequently_asked_questions#Screens_are_in_wrong_order
     [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
         | (key, scr)  <- zip "zer" [1,0,2]
-        , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
+        , (action, mask) <- [ (W.view, ""), (W.shift, "S-") ]
     ]
 
 -- Main
