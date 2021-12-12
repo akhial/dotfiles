@@ -3,11 +3,11 @@ scrolling:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Cozette
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Cozette
     style: Bold
 
   size: 13
