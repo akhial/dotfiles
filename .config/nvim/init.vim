@@ -41,7 +41,7 @@ set incsearch
 set nu rnu
 set splitbelow
 set splitright
-set showmode
+set noshowmode
 set showcmd
 set autoread
 set hidden
