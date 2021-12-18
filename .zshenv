@@ -9,4 +9,4 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx $XINITRC
 fi
 
-[ -f "$HOME"/.profile ] && source "$HOME"/.profile
+emulate sh -c ". $HOME/.profile"
