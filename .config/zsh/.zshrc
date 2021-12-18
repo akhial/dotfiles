@@ -29,6 +29,7 @@ alias ls='ls --color'
 alias mvn="mvn -s $XDG_CONFIG_HOME/maven/settings.xml"
 alias vim='nvim'
 alias vs='sudo systemctl restart libvirtd.service'
+alias x='ps x'
 alias zshconfig='vim ~/.config/zsh/.zshrc'
 alias zshsrc='source ~/.config/zsh/.zshrc'
 
