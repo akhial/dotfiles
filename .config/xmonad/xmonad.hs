@@ -43,15 +43,19 @@ myStartupHook = do
     spawnOnce "dunst &"
     setWMName "LG3D"
 
+-- Spacing
+mySpacing = spacingRaw True (Border gap gap gap gap) True (Border gap gap gap gap) True
+    where
+      gap = 4
+
 -- Layouts
 myLayoutHook = full ||| tall ||| nb
     where
       full    = lessBorders EmptyScreen (Full)
       nb      = noBorders (Full)
-      tall    = smartSpacingWithEdge gap $ Tall nmaster delta ratio
-      column  = smartSpacingWithEdge gap $ ThreeCol nmaster delta (1/3)
+      tall    = mySpacing $ Tall nmaster delta ratio
+      column  = mySpacing $ ThreeCol nmaster delta (1/3)
       -- Column parameters
-      gap     = 5
       nmaster = 1
       delta   = 3/100
       ratio   = 1/2
