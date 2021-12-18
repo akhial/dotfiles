@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-file=$(date +"%s")
+file=$(date +"%s").png
 sel=$(slop -f "-i %i -g %g")
 shotgun $sel $HOME/images/shots/$file
 dunstify -I $HOME/images/shots/$file "Shotgun" "Screenshot captured!"
