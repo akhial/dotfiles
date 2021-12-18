@@ -1,9 +1,11 @@
 config.load_autoconfig(False)
 
 c.tabs.background = True
-c.downloads.position = "bottom"
+c.downloads.position = 'bottom'
 
-myFont = "9pt JetBrains Mono SemiBold"
+c.colors.webpage.preferred_color_scheme = 'dark'
+
+myFont = '9pt JetBrainsMono Nerd Font'
 c.fonts.completion.category = myFont
 c.fonts.completion.entry = myFont
 c.fonts.contextmenu = myFont
@@ -18,8 +20,8 @@ c.fonts.statusbar = myFont
 c.fonts.tabs.selected = myFont
 c.fonts.tabs.unselected = myFont
 
-c.statusbar.show = "in-mode"
+c.statusbar.show = 'in-mode'
 
-c.downloads.location.directory = "/home/adel/downloads"
+c.downloads.location.directory = '/home/adel/downloads'
 
 config.source('gruvbox.py')
