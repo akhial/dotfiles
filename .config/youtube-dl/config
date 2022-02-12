@@ -1,2 +1,2 @@
--o '~/Videos/%(title)s.%(ext)s'
+-o '~/videos/%(title)s.%(ext)s'
 
