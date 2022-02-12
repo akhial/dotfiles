@@ -68,9 +68,15 @@ myManageHook = composeAll
     , className =? "Signal"           --> doShift "5"
     , className =? "Slack"            --> doShift "5"
     , className =? "config"           --> doFloat
+    , className =? "confirm"          --> doFloat
     , className =? "dialog"           --> doFloat
+    , className =? "file_progress"    --> doFloat
+    , className =? "error"            --> doFloat
+    , className =? "notification"     --> doFloat
     , className =? "splash"           --> doFloat
+    , className =? "toolbar"          --> doFloat
     , className =? "Gcolor3"          --> doFloat
+    , className =? "Galculator"       --> doFloat
     ]
 
 -- Keybindings
@@ -92,7 +98,7 @@ myKeys =
     -- Fix screen order.
     -- See: Frequently_asked_questions#Screens_are_in_wrong_order
     [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
-        | (key, scr)  <- zip "zer" [1,0,2]
+        | (key, scr)  <- zip "wer" [1,0,2]
         , (action, mask) <- [ (W.view, ""), (W.shift, "S-") ]
     ]
 
