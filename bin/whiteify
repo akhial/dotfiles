@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in *.png; do
+    echo "Whiteifying $i"
+    convert "$i" -background white -alpha remove -alpha off "$i"
+done
+

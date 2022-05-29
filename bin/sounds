@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export BIRD_FOREST="https://www.youtube.com/watch?v=XxP8kxUn5bc"
+export WIND_MOUNTAIN="https://www.youtube.com/watch?v=iO-mUnSjMKM"
+export RAIN="https://www.youtube.com/watch?v=q76bMs-NwRk"

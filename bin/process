@@ -1,0 +1,11 @@
+#!/bin/bash
+
+whiteify
+watermark
+compress
+mkdir ../gimp-3
+mv *.jpg ../gimp-3
+cd ../gimp-3
+exifpurge
+rm *_original
+
