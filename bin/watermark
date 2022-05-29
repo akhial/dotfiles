@@ -1,8 +1,8 @@
 #!/bin/bash
 
-wm=~/Pictures/wm.png
+wm=~/documents/moushtari/w.png
 
-for i in *.jpg; do
+for i in *.png; do
     echo "Processing $i"
-    composite -dissolve 35% -gravity center -quality 75 $wm "$i" "$i"
+    composite -dissolve 35% -gravity center $wm "$i" "$i"
 done
