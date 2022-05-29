@@ -31,6 +31,7 @@ color08 = "#928374"
 -- Basic configuration
 myTerminal           = "alacritty"
 myBrowser            = "qutebrowser"
+myFileBrowser        = "pcmanfm"
 myModMask            = mod4Mask -- Super key
 myBorderWidth        = 2
 myNormalBorderColor  = color07 -- Gray
@@ -76,7 +77,7 @@ myManageHook = composeAll
     , className =? "splash"           --> doFloat
     , className =? "toolbar"          --> doFloat
     , className =? "Gcolor3"          --> doFloat
-    , className =? "Galculator"       --> doFloat
+    , className =? "gnome-calculator"       --> doFloat
     ]
 
 -- Keybindings
@@ -85,6 +86,7 @@ myKeys =
     , ("M-C-<Return>",            spawn "rofi -show window")
     , ("M-<Return>",              spawn myTerminal)
     , ("M-b",                     spawn myBrowser)
+    , ("M-f",                     spawn myFileBrowser)
     , ("M-S-x",                   spawn "(slock &) && (sleep .5 && xset dpms force off)")
     -- Hardware buttons
     , ("<XF86AudioMute>",         spawn "amixer set Master toggle")
