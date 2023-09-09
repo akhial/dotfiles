@@ -1,0 +1,11 @@
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+
+set nu rnu
+set noshowmode
+set showcmd
+
+set incsearch
+
+set scrolloff=8
