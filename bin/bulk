@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $1 == "-b" ]]; then
+    FLAG="-b"
+else
+    FLAG=""
+fi
+
+find ./*.png -type f -printf "%f\n" | MAGICK_THREAD_LIMIT=1 parallel --bar bulk-one $FLAG {}

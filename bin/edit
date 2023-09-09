@@ -1,0 +1,17 @@
+#!/bin/bash
+
+WORK_DIR=$(pwd)
+
+mkdir -p "$WORK_DIR"/temp
+mkdir -p "$WORK_DIR"/output
+
+edit() {
+    TEMP="$2/temp/$1"
+    convert "$2/$1" -fuzz 5% -trim "$TEMP"
+    convert "$TEMP" -background "#f7f7f7" -resize 460x460 -gravity center -extent 500x500 "$TEMP"
+    convert "$TEMP" -alpha remove -alpha off -quality 80 "$2/output/${1%r*}".webp
+}
+
+export -f edit
+find "$WORK_DIR"/*.png -type f -printf "%f\n" | MAGICK_THREAD_LIMIT=1 parallel --bar edit {} "$WORK_DIR"
+rm -rf "$WORK_DIR"/temp

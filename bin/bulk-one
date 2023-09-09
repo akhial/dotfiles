@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [[ $1 == "-b" ]]; then
+    RESIZE=400x400
+    shift
+else
+    RESIZE=460x460
+fi
+SHARP=100
+
+magick \
+    "$1" \
+    -fuzz 50% -trim \
+    \( +clone -alpha extract -resize $RESIZE -write mpr:ALP +delete \) \
+    -alpha off \
+    -colorspace RGB \
+    -define filter:c=0.1601886205085204 -filter Cubic -resize $RESIZE \
+    \( -clone 0 -evaluate Pow "$(echo "scale=10; 1/3" | bc)" -define convolve:scale=$SHARP%,100 -morphology Convolve DoG:3,0,0.4981063336734057 -evaluate Pow 3 \) \
+    \( -clone 0 -define convolve:scale=$SHARP%,100 -morphology Convolve DoG:3,0,0.4981063336734057 \) \
+    -delete 0 \
+    \( -clone 1 -colorspace gray -auto-level \) \
+    -compose over -composite \
+    -set colorspace RGB -colorspace sRGB \
+    mpr:ALP -compose CopyOpacity -composite \
+    +depth \
+    "output/$1"
+
+if [[ $RESIZE == "400x400" ]]; then
+    HEIGHT=$(identify -format "%h" "output/$1")
+    VOFFSET=$((500 - HEIGHT - 20))
+    convert -size 500x500 xc:"#f7f7f7" "output/$1" -gravity north -geometry +0+$VOFFSET -quality 80 -composite "output/${1%.*}.webp"
+else
+    convert "output/$1" -background "#f7f7f7" -gravity center -extent 500x500 -alpha remove -quality 80 "output/${1%.*}.webp"
+fi
+
+rm "output/$1"
