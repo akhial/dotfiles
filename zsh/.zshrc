@@ -5,15 +5,13 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-source <(kubectl completion zsh)
-
 # History
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.hist
 setopt INC_APPEND_HISTORY_TIME
 
-PROMPT='%F{blue}%~%f %(!.#.->) '
+PROMPT='%F{blue}%~%f %(!.#.$) '
 
 # Alias definitions
 # General
@@ -22,17 +20,12 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias c='clear'
-alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias f='free -hw'
-alias ktlint='ktlint --disabled_rules=no-blank-line-before-rbrace'
-alias l='exa -la'
-alias ls='exa'
+alias l='eza -la'
+alias ls='eza'
 alias vim='nvim'
-alias vs='sudo systemctl restart libvirtd.service'
 alias x='ps x'
-# Clipboard
-alias xcopy='xsel --clipboard --input'
-alias xpaste='xsel --clipboard --output'
+alias ktlint='ktlint --disabled_rules=no-blank-line-before-rbrace'
 # Docker
 alias dcb='docker compose build'
 alias dcu='docker compose up'
@@ -50,28 +43,33 @@ alias gdl='git clone --depth=1'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
+alias gpl='git pull'
 alias gl='git log'
 # Zsh
 alias zcfg='vim /home/adel/.zshrc'
 alias zsrc='source /home/adel/.zshrc'
 
-function dpgd () {
-    docker compose run --rm $1 bash -c "cd /var/lib/postgresql/data && tar czf - ."
-}
-
-function dpgr {
-    docker compose run --rm -v $2:/backup/:ro $1 bash -c "cd /var/lib/postgresql/data && rm -rf * && tar xf /backup/db.gz"
-}
-
 # Vi-mode
 bindkey -v
 
 path+="/usr/local/bin"
-path+="/home/adel/bin"
-path+="/home/adel/bin/flutter/bin"
+path+="/home/adel/.npm/bin"
 path+="/home/adel/.local/bin"
-path+="/home/adel/.local/bin/detekt/bin"
 path+="/home/adel/.cargo/bin"
+path+="/home/adel/Documents/Flutter/bin"
+path+="/home/adel/.local/share/JetBrains/Toolbox/apps/intellij-idea-community-edition/bin"
+
+# Start SSH Agent automatically
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -s > "${HOME}/.ssh-agent-env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    eval "$(cat "${HOME}/.ssh-agent-env")" >/dev/null
+fi
+
+# Add SSH key
+ssh-add -q ~/.ssh/moushtari-ec2.pem 2>/dev/null
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/adel/.local/share/zsh/plugins/zsh-window-title/zsh-window-title.zsh
