@@ -27,3 +27,5 @@ vim.opt.updatetime = 50
 vim.opt.guifont = "Jetbrains Mono:h9"
 vim.opt.signcolumn = "yes"
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
