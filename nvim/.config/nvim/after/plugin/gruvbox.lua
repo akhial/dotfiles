@@ -5,4 +5,3 @@ require("gruvbox").setup({
     folds = false
 })
 vim.cmd("colorscheme gruvbox")
-
