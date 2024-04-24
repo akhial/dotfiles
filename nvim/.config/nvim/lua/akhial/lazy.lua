@@ -11,4 +11,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("akhial.plugins")
+require("lazy").setup("akhial.plugins", {
+    checker = {
+        enabled = true,
+        notify = false
+    },
+    change_detection = {
+        notify = false
+    }
+})

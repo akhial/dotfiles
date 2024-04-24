@@ -14,6 +14,6 @@ return {
                 group_empty = true
             }
         }
-        vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>")
+        vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<CR>")
     end
 }
