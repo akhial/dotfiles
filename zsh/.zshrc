@@ -23,7 +23,7 @@ alias c='clear'
 alias f='free -hw'
 alias l='eza -la'
 alias ls='eza'
-alias vim='nvim'
+alias e='neovide'
 alias x='ps x'
 alias ktlint='ktlint --disabled_rules=no-blank-line-before-rbrace'
 # Docker
