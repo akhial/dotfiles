@@ -1,1 +1,2 @@
-require("akhial")
+require("akhial.core")
+require("akhial.lazy")
