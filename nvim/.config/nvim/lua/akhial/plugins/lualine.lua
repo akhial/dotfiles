@@ -5,7 +5,7 @@ return {
         local lazy = require("lazy.status")
         require("lualine").setup {
             sections = {
-                lualine_x = { { lazy.updates, cond = lazy.has_updates }, "encoding", "filetype" },
+                lualine_x = { { lazy.updates, cond = lazy.has_updates, color={fg="#ff9815"} }, "encoding", "filetype" },
             }
         }
     end
