@@ -1,4 +1,4 @@
-vim.cmd "set noshowmode"
+vim.cmd("set noshowmode")
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

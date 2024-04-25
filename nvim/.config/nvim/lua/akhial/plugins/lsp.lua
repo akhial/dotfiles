@@ -10,7 +10,7 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
-        "j-hui/fidget.nvim"
+        "j-hui/fidget.nvim",
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -18,16 +18,36 @@ return {
             callback = function(event)
                 local opts = { buffer = event.buf }
 
-                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-                vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-                vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-                vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-                vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+                vim.keymap.set("n", "gd", function()
+                    vim.lsp.buf.definition()
+                end, opts)
+                vim.keymap.set("n", "K", function()
+                    vim.lsp.buf.hover()
+                end, opts)
+                vim.keymap.set("n", "<leader>vws", function()
+                    vim.lsp.buf.workspace_symbol()
+                end, opts)
+                vim.keymap.set("n", "<leader>vd", function()
+                    vim.diagnostic.open_float()
+                end, opts)
+                vim.keymap.set("n", "[d", function()
+                    vim.diagnostic.goto_next()
+                end, opts)
+                vim.keymap.set("n", "]d", function()
+                    vim.diagnostic.goto_prev()
+                end, opts)
+                vim.keymap.set("n", "<leader>vca", function()
+                    vim.lsp.buf.code_action()
+                end, opts)
+                vim.keymap.set("n", "<leader>vrr", function()
+                    vim.lsp.buf.references()
+                end, opts)
+                vim.keymap.set("n", "<leader>vrn", function()
+                    vim.lsp.buf.rename()
+                end, opts)
+                vim.keymap.set("i", "<C-h>", function()
+                    vim.lsp.buf.signature_help()
+                end, opts)
             end,
         })
 
@@ -40,23 +60,23 @@ return {
             vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
         end
 
-        require("fidget").setup {}
-        require("mason").setup {}
-        require("mason-lspconfig").setup {
+        require("fidget").setup({})
+        require("mason").setup({})
+        require("mason-lspconfig").setup({
             ensure_installed = { "lua_ls", "tsserver", "rust_analyzer" },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup {
+                    require("lspconfig")[server_name].setup({
                         capabilities = lsp_capabilities,
-                    }
+                    })
                 end,
                 lua_ls = function()
-                    require("lspconfig").lua_ls.setup {
+                    require("lspconfig").lua_ls.setup({
                         capabilities = lsp_capabilities,
                         settings = {
                             Lua = {
                                 runtime = {
-                                    version = "LuaJIT"
+                                    version = "LuaJIT",
                                 },
                                 diagnostics = {
                                     globals = { "vim" },
@@ -64,14 +84,14 @@ return {
                                 workspace = {
                                     library = {
                                         vim.env.VIMRUNTIME,
-                                    }
-                                }
-                            }
-                        }
-                    }
+                                    },
+                                },
+                            },
+                        },
+                    })
                 end,
-            }
-        }
+            },
+        })
 
         local cmp = require("cmp")
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -80,12 +100,12 @@ return {
         -- from rafamadriz/friendly-snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 
-        cmp.setup {
+        cmp.setup({
             sources = {
                 { name = "path" },
                 { name = "nvim_lsp" },
                 { name = "luasnip", keyword_length = 2 },
-                { name = "buffer",  keyword_length = 3 },
+                { name = "buffer", keyword_length = 3 },
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -100,6 +120,6 @@ return {
                     require("luasnip").lsp_expand(args.body)
                 end,
             },
-        }
-    end
+        })
+    end,
 }

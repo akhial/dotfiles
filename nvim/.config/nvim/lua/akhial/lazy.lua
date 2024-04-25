@@ -14,9 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("akhial.plugins", {
     checker = {
         enabled = true,
-        notify = false
+        notify = false,
     },
     change_detection = {
-        notify = false
-    }
+        notify = false,
+    },
 })

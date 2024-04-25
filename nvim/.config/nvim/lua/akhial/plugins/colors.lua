@@ -2,13 +2,13 @@ return {
     {
         "ellisonleao/gruvbox.nvim",
         config = function()
-            require("gruvbox").setup {
+            require("gruvbox").setup({
                 strings = false,
                 comments = true,
                 operators = false,
-                folds = false
-            }
-        end
+                folds = false,
+            })
+        end,
     },
     {
         "neanias/everforest-nvim",
@@ -17,6 +17,6 @@ return {
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             vim.cmd("colorscheme everforest")
-        end
-    }
+        end,
+    },
 }
