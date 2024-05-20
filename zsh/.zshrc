@@ -20,6 +20,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias c='clear'
+alias cat='bat'
+alias vim='nvim'
 alias f='free -hw'
 alias l='eza -la'
 alias ls='eza'
@@ -57,7 +59,6 @@ path+="/home/adel/.npm/bin"
 path+="/home/adel/.local/bin"
 path+="/home/adel/.cargo/bin"
 path+="/home/adel/Documents/Flutter/bin"
-path+="/home/adel/.local/share/JetBrains/Toolbox/apps/intellij-idea-community-edition/bin"
 
 # Start SSH Agent automatically
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
