@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+echo "f2fe45bd-8255-4f1f-8297-b2bfd678852a" | sudo tee /sys/devices/pci0000:00/0000:00:02.0/mdev_supported_types/i915-GVTg_V5_4/create
+sudo setfacl -m u:adel:rw /dev/vfio/16

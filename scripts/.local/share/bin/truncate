@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+import json
+import sys
+
+# Function to truncate numbers to 6 decimal places
+def truncate_decimal(n):
+    if isinstance(n, float):
+        return round(n, 6)
+    elif isinstance(n, list):
+        return [truncate_decimal(item) for item in n]
+    elif isinstance(n, dict):
+        return {key: truncate_decimal(value) for key, value in n.items()}
+    return n
+
+# Check if the file name is provided
+if len(sys.argv) < 2:
+    print("Usage: truncate.py <filename>")
+    sys.exit(1)
+
+# Get the file name from command line arguments
+file_name = sys.argv[1]
+
+# Read the JSON data from file
+with open(file_name, 'r') as file:
+    data = json.load(file)
+
+# Process the data
+truncated_data = truncate_decimal(data)
+
+# Write the modified data back to file
+output_file_name = 'truncated_' + file_name  # Modify this if you want a different output file naming convention
+with open(output_file_name, 'w') as file:
+    json.dump(truncated_data, file, separators=(',', ':'))
+
+print(f"Processed file saved as {output_file_name}")
