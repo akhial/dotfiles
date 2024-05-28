@@ -20,6 +20,11 @@ export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 # Firefox smooth scroll
 export MOZ_USE_XINPUT2=1
 
+### Dashboard build
+export API_URI=https://change.me:8000/
+export APP_MOUNT_URI=/
+export STATIC_URL=/
+
 # QT theme
 export QT_QPA_PLATFORMTHEME=gtk2
 
