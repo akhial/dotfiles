@@ -13,6 +13,12 @@ setopt INC_APPEND_HISTORY_TIME
 
 PROMPT='%F{blue}%~%f %(!.#.$) '
 
+function e() {
+    if (nohup neovide $1 &) 2>/dev/null; then
+    else
+    fi
+}
+
 # Alias definitions
 # General
 alias ..='cd ..'
@@ -25,7 +31,6 @@ alias vim='nvim'
 alias f='free -hw'
 alias l='eza -la'
 alias ls='eza'
-alias e='neovide'
 alias x='ps x'
 alias ktlint='ktlint --disabled_rules=no-blank-line-before-rbrace'
 # Docker
