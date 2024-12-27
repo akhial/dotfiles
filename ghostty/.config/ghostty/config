@@ -1,0 +1,12 @@
+font-size = 10
+
+window-width = 80
+window-height = 26
+
+# theme = GruvboxDark
+# theme = catppuccin-mocha
+# theme = rose-pine
+# theme = tokyonight
+# theme = xcodedark
+theme = Dark+
+
