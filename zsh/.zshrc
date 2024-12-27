@@ -11,13 +11,7 @@ SAVEHIST=10000
 HISTFILE=~/.hist
 setopt INC_APPEND_HISTORY_TIME
 
-PROMPT='%F{blue}%~%f %(!.#.$) '
-
-function e() {
-    if (nohup neovide $1 &) 2>/dev/null; then
-    else
-    fi
-}
+PROMPT='%F{blue}%~%f %(!.=>.->) '
 
 # Alias definitions
 # General
@@ -26,56 +20,39 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias c='clear'
+alias cdc='cd ~/Documents/Code/'
 alias cat='bat'
 alias vim='nvim'
-alias f='free -hw'
-alias l='eza -la'
+alias l='eza -la --group-directories-first'
 alias ls='eza'
-alias x='ps x'
-alias ktlint='ktlint --disabled_rules=no-blank-line-before-rbrace'
 # Docker
 alias dcb='docker compose build'
 alias dcu='docker compose up'
 alias dcd='docker compose down'
-alias dcr='docker compose run'
+alias dcl='docker compose logs -f'
+alias dcr='docker compose run --rm'
 alias dcrr='docker compose restart'
-alias ds='sudo systemctl restart docker'
+alias dr='docker run --rm'
+alias dri='docker run -it --rm'
+alias dcp='docker container prune -f'
+alias dvp='docker volume prune -f'
+alias dip='docker image prune -f'
 alias dsac='docker container stop $(docker container ls -aq)'
-alias drmac='dsac && docker container prune -f'
-alias dcln='drmac && docker volume prune -f'
 # Git
 alias ga='git add'
-alias gaa='git add *'
+alias gaa='git add --all'
+alias gcl='git clone'
 alias gdl='git clone --depth=1'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
-alias gpl='git pull'
-alias gl='git log'
-# Zsh
-alias zcfg='vim /home/adel/.zshrc'
-alias zsrc='source /home/adel/.zshrc'
+alias gl='git pull'
+alias glg='git log'
 
 # Vi-mode
 bindkey -v
 
-path+="/usr/local/bin"
-path+="/home/adel/.npm/bin"
-path+="/home/adel/.local/bin"
-path+="/home/adel/.cargo/bin"
-path+="/home/adel/Documents/Flutter/bin"
-
-# Start SSH Agent automatically
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -s > "${HOME}/.ssh-agent-env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    eval "$(cat "${HOME}/.ssh-agent-env")" >/dev/null
-fi
-
-# Add SSH key
-ssh-add -q ~/.ssh/moushtari-ec2.pem 2>/dev/null
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/adel/.local/share/zsh/plugins/zsh-window-title/zsh-window-title.zsh
+source <(volta completions zsh)
+
